@@ -1,2 +1,25 @@
 ﻿body {
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+}
+
+.header {
+    background: none;
+    box-shadow: none;
+}
+
+.page-content {
+    padding: 16px;  
+}
+
+.card-wide {
+  width:100%;
+  min-height:0;
+}
+
+.card-module {
+    margin: 0;
+    padding: 16px !important;
+    border-bottom: 1px solid #ccc;
+    word-break:break-word;
 }

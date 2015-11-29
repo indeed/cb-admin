@@ -8,49 +8,64 @@
 
     <link rel="icon" href="">
     <link href="bower_components/roboto-fontface/css/roboto-fontface.css" rel="stylesheet" />
-    <link href="bower_components/semantic/dist/semantic.min.css" rel="stylesheet" />
+    <link href="bower_components/material-design-lite/material.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="css/main.css" rel="stylesheet" />
-
     <!-- libs -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/semantic/dist/semantic.min.js"></script>
     <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
-
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    
     <!-- app js -->
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     
 </head>
 
-<body ng-app="marks" ng-controller="mainCtrl">
-    <div class="ui main text container">adasd
-        <div class="ui card">
-            <div class="content">
-                <div class="right floated meta">14h</div>
-                <img class="ui avatar image" src="/images/avatar/large/elliot.jpg"> Elliot
+<body ng-app="cb-admin" ng-controller="mainCtrl">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="header mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Colonel By Announcements</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
             </div>
-            <div class="image">
-                <img>
-            </div>
-            <div class="content">
-                <span class="right floated">
-                    <i class="heart outline like icon"></i>
-                    17 likes
-                </span>
-                <i class="comment icon"></i>
-                3 comments
-            </div>
-            <div class="extra content">
-                <div class="ui large transparent left icon input">
-                    <i class="heart outline icon"></i>
-                    <input type="text" placeholder="Add Comment...">
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+
+                <div class="card-wide mdl-card mdl-shadow--2dp">
+                    <div class="card-module mdl-card__title">
+                        <h2 class="mdl-card__title-text">Welcome</h2>
+                    </div>
+                    <div class="card-module mdl-card__subtitle-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...
+                    </div>
+                    <div class="card-module mdl-card__subtitle-text">
+                        The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
+                    </div>
                 </div>
             </div>
-        </div>
-    
+        </main>
     </div>
 </body>
 
