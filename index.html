@@ -17,11 +17,12 @@
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
     <script src="bower_components/material-design-lite/material.min.js"></script>
-    
+    <script src="bower_components/angular-material-design-lite/dist/angular-material-design-lite.min.js"></script>
+
     <!-- app js -->
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
-    
+
 </head>
 
 <body ng-app="cb-admin" ng-controller="mainCtrl">
@@ -52,16 +53,34 @@
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
-
                 <div class="card-wide mdl-card mdl-shadow--2dp">
-                    <div class="card-module mdl-card__title">
-                        <h2 class="mdl-card__title-text">Welcome</h2>
+                    <form class="event-form" ng-submit="addEvent()">
+                        <mdl-text-field class="event-field" label="Add event..." ng-model="newEvent"></mdl-text-field>
+                        <button class="event-button mdl-button mdl-js-button mdl-button--icon mdl-button--colored" ng-click="addEvent()">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </form>
+                </div>
+                <div class="card-wide mdl-card mdl-shadow--2dp" ng-repeat="(key, value) in announcements | orderBy: '-key'">
+                    <div class="card-module title mdl-card__title">
+                        {{parseTime(key)}}
                     </div>
-                    <div class="card-module mdl-card__subtitle-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...
-                    </div>
-                    <div class="card-module mdl-card__subtitle-text">
-                        The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
+                    <div class="card-module mdl-card__subtitle-text" ng-repeat="(i, event) in value | orderBy : 'i' | limitTo: 14">
+                        <div class="event-display" ng-hide="value[event].editing">
+                            <div class="event-button">{{event}}</div>
+                            <button class="event-button mdl-button mdl-js-button mdl-button--icon mdl-button--colored" ng-click="updateUI(); value[event].editing = true; value[event].new = event">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button class="event-button mdl-button mdl-js-button mdl-button--icon mdl-button--colored" ng-click="deleteEvent(key, i)">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </div>
+                        <div class="edit-event" ng-hide="!value[event].editing">
+                            <mdl-text-field class="event-field" ng-model="value[event].new"></mdl-text-field>
+                            <button class="event-button mdl-button mdl-js-button mdl-button--icon mdl-button--colored" ng-click="meme(key, i, value[event].new); value[event].editing = false">
+                                <i class="material-icons">check</i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

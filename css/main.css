@@ -15,11 +15,38 @@
 .card-wide {
   width:100%;
   min-height:0;
+  margin-bottom: 12px;
 }
 
 .card-module {
     margin: 0;
-    padding: 16px !important;
+    padding: 12px !important;
     border-bottom: 1px solid #ccc;
     word-break:break-word;
 }
+
+.card-module.title {
+    font-size:1.2em;
+    color: #222;
+
+}
+
+.event-form {
+    padding:0 16px 0 16px;
+}
+
+.event-field div {
+    width: 90%; /* fallback if needed */
+    width: calc(100% - 38px) !important;
+}
+
+.event-display {
+    width: 100%;
+}
+
+.event-display div {
+    width: 90%; /* fallback if needed */
+    width: calc(100% - 72px) !important;
+    display:inline-block;
+}
+
