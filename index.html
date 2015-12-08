@@ -61,7 +61,7 @@
                         </button>
                     </form>
                 </div>
-                <div class="card-wide mdl-card mdl-shadow--2dp" ng-repeat="(key, value) in announcements | orderBy: '-key'">
+                <div class="card-wide mdl-card mdl-shadow--2dp" ng-repeat="(key, value) in announcements | orderByKey: '-'">
                     <div class="card-module title mdl-card__title">
                         {{parseTime(key)}}
                     </div>
