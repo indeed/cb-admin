@@ -50,3 +50,12 @@
     display:inline-block;
 }
 
+.drawer-nav {
+    padding: 0 16px 0 16px;
+}
+
+.login-field input {
+    text-security: disc;
+    -webkit-text-security: disc;
+}
+
