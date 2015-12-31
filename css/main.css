@@ -32,12 +32,19 @@
 }
 
 .event-form {
-    padding:0 16px 0 16px;
+    padding:0 16px 0 8px;
 }
 
 .event-field div {
     width: 90%; /* fallback if needed */
-    width: calc(100% - 38px) !important;
+    width: calc(100% - 238px) !important;
+    margin-left: 16px;
+}
+
+.date-picker {
+    float: left;
+    display: inline-block;
+    margin-top: 12px;
 }
 
 .event-display {

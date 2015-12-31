@@ -11,15 +11,19 @@
     <link href="bower_components/material-design-lite/material.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="bower_components/angular-toastr/dist/angular-toastr.css" rel="stylesheet" />
+    <link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <!-- libs -->
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
     <script src="bower_components/material-design-lite/material.min.js"></script>
     <script src="bower_components/angular-material-design-lite/dist/angular-material-design-lite.min.js"></script>
     <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
 
     <!-- app js -->
     <script src="js/app.js"></script>
@@ -38,22 +42,24 @@
                 <nav class="mdl-navigation">
                     <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" ng-click="logout()" ng-hide="!authStatus">Logout</button>
                 </nav>
-</div>
+            </div>
         </header>
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">CB Admin</span>
             <nav class="mdl-navigation drawer-nav">
-               <h6>Add or edit announcements to display in the Colonel By app. New announcements will be added automatically under today's date.</h6>
+                <h6>Add or edit announcements to display in the Colonel By app. New announcements will be added automatically under the selected date (today by default).</h6>
             </nav>
         </div>
         <main class="mdl-layout__content">
             <div class="page-content" ng-hide="!authStatus">
-                <div class="card-wide mdl-card mdl-shadow--2dp">
+                <div class="card-wide float-right mdl-card mdl-shadow--2dp">
                     <form class="event-form" ng-submit="addEvent()">
+                        <md-datepicker class="date-picker" ng-model="date" md-placeholder="Enter date"></md-datepicker>
                         <mdl-text-field class="event-field" label="Add event..." ng-model="newEvent"></mdl-text-field>
                         <button class="event-button mdl-button mdl-js-button mdl-button--icon mdl-button--colored" ng-click="addEvent()">
                             <i class="material-icons">add</i>
                         </button>
+                        
                     </form>
                 </div>
                 <div class="card-wide mdl-card mdl-shadow--2dp" ng-repeat="(key, value) in announcements | orderByKey: '-'">
@@ -96,7 +102,15 @@
                 </div>
 
             </div>
+
         </main>
+        <mb-datepicker element-id='date1'
+                       input-class="testClass"
+                       input-name="testName"
+                       arrows="arrows"
+                       calendar-header="header"
+                       date="date"
+                       date-format="YYYY-MM-DD"></mb-datepicker>
     </div>
 </body>
 

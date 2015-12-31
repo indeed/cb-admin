@@ -1,4 +1,4 @@
-﻿var app = angular.module('cb-admin', ['cb-admin.services', 'firebase', 'mdl', 'toastr'])
+﻿var app = angular.module('cb-admin', ['cb-admin.services', 'firebase', 'mdl', 'toastr', 'ngMaterial'])
 
 var fireRef = new Firebase("https://cbapp.firebaseio.com");
 
@@ -29,7 +29,7 @@ app.controller('mainCtrl', function ($scope, $firebaseObject, $firebaseAuth, mdl
 
     $scope.addEvent = function () {
         if ($scope.newEvent != "" && $scope.newEvent) {
-            var time = moment().startOf('day').format("x");
+            var time = moment($scope.date).startOf('day').format("x");
             if (!$scope.announcements[time]) {
                 $scope.announcements[time] = [];
             }
@@ -68,4 +68,5 @@ app.controller('mainCtrl', function ($scope, $firebaseObject, $firebaseAuth, mdl
         $scope.authStatus = authData;
     });
 
+    $scope.date = new Date();
 });
