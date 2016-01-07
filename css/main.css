@@ -41,6 +41,11 @@
     margin-left: 16px;
 }
 
+.event-edit div {
+    width: 90%; /* fallback if needed */
+    width: calc(100% - 36px) !important;
+}
+
 .date-picker {
     float: left;
     display: inline-block;
